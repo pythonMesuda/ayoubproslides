@@ -1,0 +1,394 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    box-sizing: border-box;
+}
+
+header {
+    background-color: white;
+    box-shadow: 0 8px 6px rgba(0, 0, 0, 0.1), 0 5px 3px rgba(0, 0, 0, 0.08);
+    padding: 10px;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-icon {
+    margin: 0 auto;
+    display: flex;
+}
+
+.left-icon img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+nav {
+  background-color: white;
+  margin: 0 auto;
+  max-width: 500px;
+  margin-top: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #007BFF;
+  padding: 10px 20px;
+  display: block;
+  transition: all 0.3s ease;
+  font-family: 'Afacad Flux', sans-serif;
+  border-bottom: 1px solid white;
+  font-size: 19px;
+  position: relative;
+}
+
+nav ul li a::after {
+    content: ''; 
+    position: absolute;
+    width: 0;
+    height: 1.5px; 
+    background: #007bff; 
+    left: 50%; 
+    bottom: -5px;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0; 
+}
+
+
+.hero-section {
+    background: linear-gradient(to bottom right, #007BFF, #9dc5ef);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.hero-section h2 {
+    font-family: 'Afacad Flux', sans-serif;
+    font-size: 48px;
+    color: #ffffff;
+    margin: 0;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section p {
+    font-family: 'Afacad Flux', sans-serif;
+    font-size: 28px;
+    color: #ffffff;
+    margin: 0;
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+.hero-section .cta {
+    background-color: gold;
+    color: white;
+    font-family: 'Afacad Flux', sans-serif;
+    border-radius: 25px;
+    border: 1.5px rgb(231, 199, 19);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 10px 15px;
+    width: auto;
+    font-size: 22px;
+}
+
+
+.hero-section .cta:hover {
+    background-color: rgb(234, 199, 3);
+    transform: translateY(-5px);
+}
+
+.our-services-section {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0; /* Added padding for better spacing */
+}
+
+.our-services-section h2 {
+    font-family: 'Afacad Flux', sans-serif;
+    font-size: 32px; /* Increased font size for better visibility */
+    text-align: center; /* Centered the heading */
+    color: #007BFF; /* Added color for a more attractive look */
+    margin: 20px 0; /* Added margin for spacing */
+}
+
+.services {
+    display: grid; /* Use CSS Grid */
+    grid-template-columns: repeat(4, 1fr); /* Four cards in a row */
+    gap: 20px; /* Space between cards */
+    width: 90%;
+    margin: 0 auto; /* Centered the service div */
+}
+
+/* Individual service card styles */
+.service {
+    background-color: white;
+    height: 350px; /* Adjusted height for better proportion */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), 0 2px 10px rgba(0, 0, 0, 0.05); /* Enhanced shadow */
+    border-radius: 10px; /* Added border radius for rounded corners */
+    overflow: hidden; /* Prevents overflow of image and text */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.service:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.service img {
+    width: 100%; /* Ensured the image takes the full width */
+    height: 70%; /* Adjusted height */
+    object-fit: cover;
+}
+
+.service p {
+    font-family: 'Afacad Flux', sans-serif;
+    font-size: 18px; /* Adjusted font size for better readability */
+    margin: 10px 0; /* Added margin for spacing */
+    text-align: center; /* Centered the text */
+    color: #333; /* Darker text for better contrast */
+}
+
+
+/* Create Page */
+
+.create-section {
+    background-color: #f9f9f9; 
+    padding: 30px; 
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto; 
+    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.1);
+}
+
+.create-section h2 {
+    font-family: 'Afacad Flux', sans-serif;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.create-section p {
+    text-align: center; 
+    margin-bottom: 20px;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+label {
+    font-family: 'Afacad Flux', sans-serif;
+    display: block;
+    margin-bottom: 3px;
+    color: #333;
+    margin-top: 7px;
+}
+
+input,
+textarea,
+select {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    transition: border-color 0.3s ease;
+    font-family: 'Afacad Flux', sans-serif;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #007BFF;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button.cta {
+    background-color: #007BFF;
+    color: white; 
+    font-family: 'Afacad Flux', sans-serif; 
+    border-radius: 25px; 
+    border: 1.5px solid #007BFF; 
+    cursor: pointer; 
+    transition: all 0.3s ease;
+    padding: 10px 15px;
+    font-size: 18px;
+    width: 100%; 
+    margin-top: 20px;
+}
+
+button.cta:hover {
+    background-color: #1860ad;
+    transform: translateY(-2px);
+}
+
+input[type='file']::-webkit-file-upload-button {
+    display: none;
+}
+
+input[type='file']::before {
+    content: 'Choose Files';
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-right: 7px;
+}
+
+input[type='file']:hover::before {
+    background-color: #1860ad;
+}
+
+input[type='file'] {
+    border: none;
+}
+
+
+
+footer {
+    background-color: #007BFF; /* Blue background */
+    color: white; /* White text */
+    padding: 20px 0; /* Padding around footer */
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+.footer-content {
+    display: flex; /* Flexbox layout for sections */
+    justify-content: space-around; /* Space out the sections */
+    flex-wrap: wrap; /* Wrap sections on smaller screens */
+}
+
+.footer-section {
+    width: 20%; /* Width for each section */
+    padding: 20px; /* Padding inside each section */
+}
+
+.footer-section h3 {
+    margin-bottom: 10px; /* Margin below the heading */
+    font-size: 20px; /* Heading font size */
+}
+
+.footer-section p {
+    margin: 10px 0; /* Margin for paragraphs */
+    font-size: 14px; /* Paragraph font size */
+}
+
+.footer-section ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+}
+
+.footer-section ul li {
+    margin: 10px 0; /* Margin for list items */
+}
+
+.footer-section ul li a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Link color */
+    transition: color 0.3s; /* Transition for hover effect */
+}
+
+.footer-section ul li a:hover {
+    color: #FFD700; /* Gold color on hover */
+}
+
+.footer-bottom {
+    text-align: center; /* Center text */
+    margin-top: 20px; /* Margin above bottom text */
+    font-size: 14px; /* Font size for bottom text */
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 30px 10px; /* Reduced padding for mobile */
+    }
+
+    .hero-section h2 {
+        font-size: 32px; /* Decreased font size for smaller screens */
+        margin-bottom: 10px; /* Reduced margin */
+    }
+
+    .hero-section p {
+        font-size: 20px; /* Decreased font size for better readability */
+        margin-bottom: 20px; /* Reduced margin */
+        line-height: 1.4; /* Keep line height for readability */
+    }
+
+    .hero-section .cta {
+        padding: 12px 25px; /* Adjusted padding for smaller buttons */
+        font-size: 18px; /* Slightly reduced font size */
+    }
+
+    .services {
+        grid-template-columns: 1fr; /* One card per row */
+    }
+
+    .our-services-section h2 {
+        font-size: 26px; /* Adjusted font size for mobile */
+    }
+    
+    .service p {
+        font-size: 16px; /* Smaller font for mobile */
+    }
+
+
+
+
+    .footer-content {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: center; /* Center sections */
+    }
+
+    .footer-section {
+        width: 100%; /* Full width for each section on mobile */
+        text-align: center; /* Center text */
+    }
+}
+
