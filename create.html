@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Request your custom PowerPoint presentation. Fill out the form to provide your specifications, and we will create it for you!">
+    <meta name="keywords" content="custom PowerPoint presentation, request presentation, AyoubProSlides">
+    <title>Create Your Presentation - AyoubProSlides</title>
+    <link rel="icon" type="image/jpg" href="" id="favicon">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux&display=swap" rel="stylesheet">
+
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="left-icon">
+                <img src="" alt="AyoubProSlides" id="header-logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create.html">Create</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="create-section">
+            <h2>Create Your Custom Presentation</h2>
+            <p>Please fill out the form below with your presentation details. We’ll get back to you shortly!</p>
+            <form action="https://getform.io/f/ayvplwlb" method="POST" id="presentation-form" enctype="multipart/form-data">
+                <input type="text" id="name" name="name" placeholder="Enter Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
+                <select name="user-type" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="student">Student</option>
+                    <option value="business">Business</option>
+                    <option value="other">Other</option>
+                </select>
+                <input type="text" id="presentation-title" name="title" placeholder="Enter the presentation title" required>
+                <input type="number" id="slides" name="slides" min="1" placeholder="Number of slides" required>
+                <textarea id="description" name="description" rows="5" placeholder="Enter the presentation descreption" required></textarea>
+                <label for="file">You can upload a file for more informations on the presentation</label>
+                <input type="file" id="file" name="files[]" accept=".pdf,.doc,.docx,.ppt,.pptx" placeholder="Import a support file" multiple>
+                <input type="text" id="style" name="style" placeholder="Enter Your preffered style/theme">
+                <label for="deadline">Deadline:</label>
+                <input type="date" id="deadline" name="deadline" required>
+                <textarea id="additional-requests" name="additional_requests" rows="5" placeholder="Any additional requests?"></textarea>
+                <button type="submit" class="cta">Send Request</button>
+            </form>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>About AyoubProSlides</h3>
+                <p>At AyoubProSlides, we specialize in creating unique and professional PowerPoint presentations tailored to your needs. Our designs ensure your ideas shine through!</p>
+            </div>
+            <div class="footer-section services">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="index.html">Custom Presentations</a></li>
+                    <li><a href="index.html">Template Design</a></li>
+                    <li><a href="index.html">Presentation Optimization</a></li>
+                    <li><a href="index.html">Pitch Deck Creation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="https://instagram.com/ayoubproslides" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 AyoubProSlides | All Rights Reserved</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAHlAGs0OJtXORG9qx6IWmGBAr1Izk_L10",
+            authDomain: "ayoubproslides.firebaseapp.com",
+            projectId: "ayoubproslides",
+            storageBucket: "ayoubproslides.appspot.com",
+            messagingSenderId: "904128139507",
+            appId: "1:904128139507:web:25e5101697493251e92786",
+            measurementId: "G-WBRQCKJ1L8"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        const storage = firebase.storage();
+
+        const storageRef = storage.ref('images');
+
+        const imageMapping = {
+            'logo.jpg': 'favicon',
+            'logo1.jpg': 'header-logo'
+        };
+
+        Object.keys(imageMapping).forEach((filename) => {
+            const elemntId = imageMapping[filename];
+
+            storageRef.child(filename).getDownloadURL().then((url) => {
+                if (elemntId == 'favicon') {
+                    document.getElementById('favicon').setAttribute('href', url);
+                } else {
+                    document.getElementById(elemntId).setAttribute('src', url);
+                }
+            }).catch((error) => {
+                console.error('Error fetching image:', error);
+            });
+        });
+  
+    </script>
+</body>
+</html>
