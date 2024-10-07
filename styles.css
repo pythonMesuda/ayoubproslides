@@ -344,6 +344,65 @@ footer {
     font-size: 14px; /* Font size for bottom text */
 }
 
+
+.how-to {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.how-to h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+.instructions-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.instruction {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.instruction:hover {
+    transform: translateY(-10px);
+}
+
+.instruction img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.instruction h3 {
+    font-size: 1.5rem;
+    color: #007BFF;
+    margin-bottom: 15px;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+.instruction p {
+    font-size: 1rem;
+    color: #666;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+
+
+
+
+
 /* Mobile Styles */
 @media (max-width: 768px) {
     .hero-section {
@@ -389,6 +448,15 @@ footer {
     .footer-section {
         width: 100%; /* Full width for each section on mobile */
         text-align: center; /* Center text */
+    }
+
+
+    .instructions-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .instruction {
+        margin-bottom: 20px;
     }
 }
 
