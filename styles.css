@@ -398,6 +398,66 @@ footer {
     font-family: 'Afacad Flux', sans-serif;
 }
 
+.price-section {
+    background-color: #f8f9fa; /* Light background for contrast */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    max-width: 800px; /* Max width for readability */
+    margin: 20px auto; /* Center alignment */
+}
+
+.price-section h2 {
+    text-align: center;
+    font-size: 2rem; /* Large size for prominence */
+    margin-bottom: 15px; /* Space below heading */
+    font-family: 'Afacad Flux', sans-serif;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 25px;
+}
+
+.price-section h3 {
+    color: #495057; /* Slightly lighter color for subheadings */
+    font-size: 1.5rem; /* Medium size */
+    margin-top: 20px; /* Space above subheading */
+    margin-bottom: 10px; /* Space below subheading */
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+.prices {
+    display: flex;
+    flex-direction: column; /* Stack price items vertically */
+    gap: 15px; /* Space between price items */
+}
+
+.price {
+    background-color: #ffffff; /* White background for price items */
+    border-radius: 6px; /* Rounded corners */
+    padding: 15px; /* Inner padding */
+    border: 1px solid #dee2e6; /* Light border */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effects */
+}
+
+.price:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.price h2 {
+    color: #007bff; /* Blue color for titles */
+    font-size: 1.5rem; /* Medium size */
+    margin-bottom: 5px; /* Space below title */
+    font-family: 'Afacad Flux', sans-serif;
+    background-color: white;
+}
+
+.price p {
+    font-size: 1.25rem; /* Slightly larger for price range */
+    color: #28a745; /* Green color for prices */
+    font-family: 'Afacad Flux', sans-serif;
+}
+
 
 
 
