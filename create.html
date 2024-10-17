@@ -39,6 +39,15 @@
     </header>
 
     <main>
+        <section class="paypal-section">
+            <script src="https://www.paypal.com/sdk/js?client-id=BAAc2-sbrRY0hYlvCOPS3jIXUkw937T-0MU9b7htil3i7h_hzQkAHyznN8cI7-Yf68lonoaFN_3PvycFPs&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+            <div id="paypal-container-4BD399W5TD2KA"></div>
+            <script>
+                paypal.HostedButtons({
+                    hostedButtonId: "4BD399W5TD2KA",
+                }).render("#paypal-container-4BD399W5TD2KA")
+            </script>
+        </section>
         <section class="create-section">
             <h2>Create Your Custom Presentation</h2>
             <p>Please fill out the form below with your presentation details. We’ll get back to you shortly!</p>
