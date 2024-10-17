@@ -459,6 +459,31 @@ footer {
 }
 
 
+.paypal-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#paypal-container-4BD399W5TD2KA {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+.paypal-section script {
+    display: none; /* Hides the script block */
+}
 
 
 
