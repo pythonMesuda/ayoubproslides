@@ -485,6 +485,11 @@ footer {
     display: none; /* Hides the script block */
 }
 
+.adsbygoogle {
+    min-width: 250px;
+}
+
+
 
 
 
@@ -542,6 +547,10 @@ footer {
     }
     .instruction {
         margin-bottom: 20px;
+    }
+
+    .adsbygoogle {
+        width: 100%; /* Ensures it scales properly on small screens */
     }
 }
 
