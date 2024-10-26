@@ -13,15 +13,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3LXLHFDNT"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-        gtag('config', 'G-WBRQCKJ1L8');
-    </script>
 </head>
 <body>
     <header>
@@ -33,21 +26,13 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="create.html">Create</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="paypal-section">
-            <script src="https://www.paypal.com/sdk/js?client-id=BAAc2-sbrRY0hYlvCOPS3jIXUkw937T-0MU9b7htil3i7h_hzQkAHyznN8cI7-Yf68lonoaFN_3PvycFPs&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
-            <div id="paypal-container-4BD399W5TD2KA"></div>
-            <script>
-                paypal.HostedButtons({
-                    hostedButtonId: "4BD399W5TD2KA",
-                }).render("#paypal-container-4BD399W5TD2KA")
-            </script>
-        </section>
         <section class="create-section">
             <h2>Create Your Custom Presentation</h2>
             <p>Please fill out the form below with your presentation details. We’ll get back to you shortly!</p>
@@ -58,12 +43,13 @@
                     <option value="" disabled selected>Select an option</option>
                     <option value="student">Student</option>
                     <option value="business">Business</option>
+                    <option value="other">Other</option>
                 </select>
                 <input type="text" id="presentation-title" name="title" placeholder="Enter the presentation title" required>
                 <input type="number" id="slides" name="slides" min="1" placeholder="Number of slides" required>
                 <textarea id="description" name="description" rows="5" placeholder="Enter the presentation descreption" required></textarea>
-                <label for="file">You can upload a file for more informations on the presentation</label>
-                <input type="file" id="file" name="files[]" accept=".pdf,.doc,.docx,.ppt,.pptx" placeholder="Import a support file" multiple>
+                <label for="style">You can upload a file for more information on the presentation</label>
+                <input type="file" id="style" name="files[]" accept=".pdf,.doc,.docx,.ppt,.pptx" placeholder="Import a support file" multiple>
                 <input type="text" id="style" name="style" placeholder="Enter Your preffered style/theme">
                 <label for="deadline">Deadline:</label>
                 <input type="date" id="deadline" name="deadline" required>
@@ -72,18 +58,13 @@
             </form>
 
         </section>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5890747611356036"
-             crossorigin="anonymous"></script>
-        <!-- CreatePage Ad -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-5890747611356036"
-             data-ad-slot="8635605354"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+
+        <section class="thanks-card-container" id="tcc" style="display: none;">
+            <div class="thanks-card">
+                <h2>Your Request Has Been Received!</h2>
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -105,7 +86,6 @@
                 <h3>Follow Us</h3>
                 <ul>
                     <li><a href="https://instagram.com/ayoubproslides" target="_blank">Instagram</a></li>
-                    <li><a href="https://www.facebook.com/profile.php?id=61566773897958" target="_blank">Facebook</a></li>
                 </ul>
             </div>
         </div>
@@ -150,6 +130,42 @@
             }).catch((error) => {
                 console.error('Error fetching image:', error);
             });
+        });
+
+        const form = document.getElementById("presentation-form");
+        const thanksCard = document.getElementById('tcc'); // Element to show after submission
+
+        form.addEventListener("submit", formSubmit);
+
+        function formSubmit(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+
+            fetch("https://getform.io/f/ayvplwlb", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "Accept": "application/json",
+                },
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message or thanks card
+                    thanksCard.style.display = 'flex';
+                    form.reset(); // Reset the form
+                } else {
+                    // Handle errors if any
+                    console.error('Form submission failed:', response.statusText);
+                }
+            })
+            .catch(error => {
+                console.error('Error during form submission:', error);
+            });
+        }
+
+        // Hide the thanks card on click
+        thanksCard.addEventListener('click', function() {
+            thanksCard.style.display = 'none';
         });
   
     </script>
